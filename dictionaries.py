@@ -2,6 +2,8 @@
 # minor: sad
 # Am: A minor, sad
 # A: A major, happy
+# m: minor
+# b: flat (back one key)
 
 harmonic_to_note = {"1b": "B", 
                     "1a": "Abm", 
@@ -26,7 +28,9 @@ harmonic_to_note = {"1b": "B",
                     "11a": "F#m",
                     "11b": "A",
                     "12a": "Dbm",
-                    "12b": "E"}
+                    "12b": "E",
+                    "11a": "Gbm",
+                    "2b": "Gb"}
 
 
 harmonic_to_traktor = {"1b": "6d", 
@@ -53,6 +57,16 @@ harmonic_to_traktor = {"1b": "6d",
                     "11b": "4d",
                     "12a": "5m",
                     "12b": "5d"}
+
+sharp_flat_equivalents = {
+        "C#": "Db",
+        "D#": "Eb",
+        "E#": "F",
+        "F#": "Gb",
+        "G#": "Ab",
+        "A#": "Bb",
+        "B#": "C"
+    }
 
 harmonic_major_order = ["1b", "2b", "3b", "4b", "5b", "6b", "7b", "8b", "9b", "10b", "11b", "12b"]
 harmonic_minor_order = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12a"]

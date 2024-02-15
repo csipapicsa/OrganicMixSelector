@@ -2,6 +2,8 @@ from dictionaries import harmonic_to_traktor, harmonic_major_order, harmonic_min
 import pandas as pd
 import xml.etree.ElementTree as ET
 
+from dictionaries import harmonic_to_note
+
 def reverse_dictionary(dictionary):
     """
     Reverse a dictionary, swapping keys and values.
@@ -23,12 +25,12 @@ def get_classic_neighbours(note):
     """
     Given a note, return its classic neighbours.
     """
-    if note[1] == "b":
+    if note[-1] == "b":
         prev_key_index = (harmonic_major_order.index(note) - 1) % len(harmonic_major_order)
         next_key_index = (harmonic_major_order.index(note) + 1) % len(harmonic_major_order)
         index = harmonic_major_order.index(note)
         return harmonic_major_order[prev_key_index], harmonic_major_order[next_key_index], harmonic_minor_order[index]
-    elif note[1] == "a":
+    elif note[-1] == "a":
         prev_key_index = (harmonic_minor_order.index(note) - 1) % len(harmonic_minor_order)
         next_key_index = (harmonic_minor_order.index(note) + 1) % len(harmonic_minor_order)
         index = harmonic_minor_order.index(note)
@@ -56,6 +58,7 @@ def nml_key_int_to_name(nml_key):
 
   # Define the key names
   key_names = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+  key_names = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"]
 
   # Extract key name and determine if minor
   base_key = key_names[nml_key % 12]
@@ -64,12 +67,15 @@ def nml_key_int_to_name(nml_key):
   # Return key name with optional "m" for minor
   return base_key + ("m" if is_minor else "")
 
-def load_songs_from_xml(file_path):
+def load_songs_from_xml(file_path, 
+                        note_to_harmonic=reverse_dictionary(harmonic_to_note),
+                        bpm_semitone_threshold=0.4):
     tree = ET.parse(file_path)
     root = tree.getroot()
     
     # List to hold all song entries
     songs_list = []
+    id = 1
     
     # Iterate over each ENTRY element in the XML tree
     for entry in root.findall(".//ENTRY"):
@@ -86,9 +92,13 @@ def load_songs_from_xml(file_path):
         comment = info.get('COMMENT') if info is not None else None
         color = int(info.get('COLOR')) if info is not None and info.get('COLOR') is not None else ""
         
-        bpm = temp.get('BPM') if temp is not None else None
+        bpm = float(temp.get('BPM')) if temp is not None else 0
         
-        musical_key_int = musical_key.get('VALUE') if musical_key is not None else ""
+        musical_key_int = musical_key.get('VALUE') if musical_key is not None else 0
+        musical_key = nml_key_int_to_name(int(musical_key_int)) if musical_key_int else ""
+        harmonic_key = note_to_harmonic[musical_key] if musical_key else ""
+        bpm_max = calculate_new_tempo(bpm, bpm_semitone_threshold)
+        bpm_min = calculate_new_tempo(bpm, -bpm_semitone_threshold)
         # I have no idea why it is not working 
         #musical_key = int(musical_key.get('VALUE')) if musical_key is not None and musical_key.get('VALUE') is not None else 0
         
@@ -104,25 +114,39 @@ def load_songs_from_xml(file_path):
         
         # Create a dictionary for the row entry
         song_dict = {
+            'ID': id,
             'Artist': artist,
             'Title': title,
             'File_Path': full_path,
             'Play_Count': play_count,
             'Comment': comment,
-            'BPM': bpm,
-            'Musical_Key_Int': musical_key_int,
+            'BPM': int(bpm), # it is really a temporary, since I wanna filter it 
+            'BPM_max': bpm_max,
+            'BPM_min': bpm_min,
+            'Musical_Key_Int': int(musical_key_int),
             'Color': color,
-            'Musical_Key': nml_key_int_to_name(int(musical_key_int)) if musical_key_int else ""
+            'Musical_Key': musical_key,
+            'Harmonic_Key': harmonic_key,
+            'Kind': "Base"
         }
         songs_list.append(song_dict)
+        id += 1
     
     # Convert the list of dictionaries to a DataFrame
     df_songs = pd.DataFrame(songs_list)
 
     # TODO doesnt take to much time, so just keep it for now
     df_songs.dropna(subset=['Artist', 'Title'], how='all', inplace=True)  # Drop rows where both Artist and Title are missing
-    
+    # drop files where musical_key_int is 0
+    df_songs = df_songs[df_songs['Musical_Key_Int']!= 0]
     return df_songs
+
+def calculate_new_tempo(song_tempo, semitone_change):
+    """
+    Calculate the new tempo based on the desired semitone change
+    """
+    new_tempo = song_tempo * (2 ** (semitone_change / 12))
+    return float(new_tempo)
 
 def random_sample_df(df, n_samples, random_state=None):
   """
@@ -162,8 +186,53 @@ def empty_key(key):
         return None
 
 """
+import matplotlib.pyplot as plt
+import networkx as nx
 
-t = reverse_dictionary(harmonic_to_traktor)
-print(t)
-print(t["6d"])
+def plot_a_graph(G):
+    # Draw the graph
+    plt.figure(figsize=(15, 15))  # Optional: Sets the size of the figure
 
+    # Use a layout that spreads nodes further apart, like the shell layout
+    pos = nx.spring_layout(G)  # Positions nodes using the spring layout algorithm for better visualization
+   # Draw nodes with a smaller size and labels with a smaller font size
+    nx.draw_networkx_nodes(G, pos, node_size=50, node_color='skyblue', alpha=0.9)
+    nx.draw_networkx_labels(G, pos, font_size=8)
+
+    # Draw edges with increased transparency and a thin line
+    nx.draw_networkx_edges(G, pos, alpha=0.3, arrows=True, arrowsize=10, edge_color='black', style='dashed')
+    plt.title("Directed Graph")
+    plt.show()
+
+#t = reverse_dictionary(harmonic_to_traktor)
+#print(t)
+#print(t["6d"])
+
+def plot_a_graph_2(G):
+    # Assuming G is your graph
+
+    # Choose a layout
+    pos = nx.spring_layout(G)
+
+    # Draw the graph
+    plt.figure(figsize=(15, 15))
+    nx.draw_networkx_nodes(G, pos, node_color='skyblue')
+    nx.draw_networkx_edges(G, pos, edge_color='black', arrows=True)
+
+    # Draw labels offset from the nodes
+    for node, (x, y) in pos.items():
+        plt.text(x, y, s=node, horizontalalignment='left', verticalalignment='bottom', fontsize=8)
+
+    plt.title("Directed Graph")
+    plt.axis('off')  # Turn off the axis
+    plt.show()
+
+
+def keep_largest_cluster(G):
+    # Find the largest connected component
+    largest_cc = max(nx.weakly_connected_components(G), key=len)
+
+    # Create a subgraph containing only the largest connected component
+    G_largest = G.subgraph(largest_cc).copy()
+
+    return G_largest
