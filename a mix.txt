@@ -1,0 +1,40 @@
+	ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+1477	1478	None	Funkaholics - Hype It Up	//DJ//SPOTIFY//YOUTUBE//Funkaholics - Hype It ...		None	133	136.891842	130.710026	18		Gbm	11a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+1233	1234	None	Aquasky vs Masterblaster - Cobra (Chris Carter...	//DJ//SELECTOR//Aquasky vs Masterblaster - Cob...		None	135	138.155522	131.916641	13		Dbm	12a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+408	409	Acen	Dirty Raver	//DJ//ALBUMOK//VA - Rennie Pilgrem presents TC...		Track 5	132	135.140648	129.037913	20		Abm	1a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+1343	1344	Plump DJs	System Addict	//DJ//SPOTIFY//Rádióban tetszett//System Addic...		None	133	137.129025	130.936498	15		Ebm	2a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+1218	1219	None	BREAKBEAT-22-02-19	//DJ//RECORDS//BREAKBEAT-22-02-19.mp3		None	132	135.085354	128.985116	22		Bbm	3a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+997	998	Satellites & Cosmonaut	Sunrise (Original Mix)	//DJ//ALBUMOK//[torrents.ru]_breaks_pack_march...		Enjoy!	134	138.155054	131.916193	22		Bbm	3a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+1351	1352	None	Anomaly	//DJ//SPOTIFY//YOUTUBE//Anomaly.mp3		None	136	139.752155	133.441171	15		Ebm	2a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+1259	1260	None	James Lavelle - Crooked (Feat. Evil Nine)	//DJ//SELECTOR//James Lavelle - Crooked (Feat....		None	131	135.085119	128.984892	14		Dm	7a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+218	219	Meat Katie and D Ramirez	Stop the Revolution Pt 1 (Dubfire's Arrowhead ...	//DJ//ALBUMOK//Label - LOT-49//LOT49 028_-_Mea...		HFT Team	127	130.989126	125.073867	20		Abm	1a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+20	21	None	RUNE _ Audiohazard - Searching (Kelle Remix) _...	//DJ//RUNE _ Audiohazard - Searching (Kelle Re...	2	None	136	139.179224	132.894113	21		Am	8a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+1485	1486	None	Longplayers - Your Break Is Gonna Come	//DJ//SPOTIFY//YOUTUBE//Longplayers - Your Bre...		None	136	139.99104	133.669269	21		Am	8a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+176	177	Lee Coombs	Dubhead	//DJ//ALBUMOK//Finger Lickin' Records CD//[200...		FLRCD010	129	133.014777	127.008043	13		Dbm	12a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+1475	1476	None	Fran Egea - Electric	//DJ//SPOTIFY//YOUTUBE//Fran Egea - Electric.mp3		None	135	138.155475	131.916596	21		Am	8a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+201	202	Vandal Feat Odissi	Obey (Dylan Rhymes Remix)	//DJ//ALBUMOK//Label - LOT-49//LOT49 017R_-_Va...		Le Coq Sportif	129	133.018165	127.011278	23		Bm	10a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+251	252	Zodiac Cartel	Devil's Music	//DJ//ALBUMOK//Label - LOT-49//LOT49CD 004_-_L...		Enjoy!	128	131.875412	125.920129	18		Gbm	11a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+1330	1331	Soul Of Man, Salty Acapella	Foxy Moron (feat. Salty Acapella)	//DJ//SPOTIFY//Rádióban tetszett//Foxy Moron (...		None	136	139.179006	132.893905	10		Bb	6b	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+140	141	DJ Quest	Breaks Point 11	//DJ//ALBUMOK//DJ Lady Waks & Quest - 2005 - B...		None	135	138.409789	132.159425	15		Ebm	2a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+1137	1138	Junq	303 Days on Kepla-47c	//DJ//ELECTRO//303 Days on Kepla-47c.mp3		None	126	129.968179	124.099025	14		Dm	7a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+988	989	Quadrat Beat	Showtime (Original Mix)	//DJ//ALBUMOK//[torrents.ru]_breaks_pack_march...		Enjoy!	133	136.108743	129.96229	20		Abm	1a	Base
+ID	Artist	Title	File_Path	Play_Count	Comment	BPM	BPM_max	BPM_min	Musical_Key_Int	Color	Musical_Key	Harmonic_Key	Kind
+255	256	Uberzone	4-Bit (Uberzone's 2-Bit Mix)	//DJ//ALBUMOK//Label - LOT-49//LOT49CD 004_-_L...		Enjoy!	131	134.133014	128.075782	20		Abm	1a	Base

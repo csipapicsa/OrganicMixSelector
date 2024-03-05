@@ -38,7 +38,7 @@ def get_classic_neighbours(note):
     else:
         return None, None
     
-print(get_classic_neighbours("6a"))
+# print(get_classic_neighbours("6a"))
 
 # It will came from the config 
 temp_list_of_neighbours = ["+1", "+2", "T0", "T+1"]
@@ -148,7 +148,7 @@ def calculate_new_tempo(song_tempo, semitone_change):
     new_tempo = song_tempo * (2 ** (semitone_change / 12))
     return float(new_tempo)
 
-def random_sample_df(df, n_samples, random_state=None):
+def random_sample_df(df, n_samples=0, random_state=None):
   """
   Randomly samples a specified number of rows from a pandas DataFrame.
 
@@ -170,7 +170,10 @@ def random_sample_df(df, n_samples, random_state=None):
     raise ValueError("Number of samples cannot be greater than the number of rows in the dataframe.")
 
   # Sample the dataframe using random sampling
-  return df.sample(n=n_samples, random_state=random_state)
+  if n_samples == 0:
+    return df
+  else:
+    return df.sample(n=n_samples, random_state=random_state)
 
 """
 
