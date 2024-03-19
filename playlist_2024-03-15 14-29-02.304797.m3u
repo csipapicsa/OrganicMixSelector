@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS "deleted_model_settings" (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    setting_name TEXT NOT NULL,
+    initial_welcome_text TEXT,
+    stop_word TEXT,
+    system_text TEXT,
+    model_seed INT NOT NULL,
+    print BOOLEAN NOT NULL,
+    message TEXT NOT NULL,
+    model TEXT NOT NULL,
+    owner TEXT NOT NULL,
+    created_at DATETIME NOT NULL,
+    model_temperature REAL,
+    model_default BOOLEAN NOT NULL DEFAULT 0
+);

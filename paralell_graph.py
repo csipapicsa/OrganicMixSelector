@@ -9,20 +9,21 @@ def split_dataframe(df, n_splits):
 
 def fast_comparisson_splitted(queue, df_seqment, df):
     df_list = df.values.tolist()
-    df_list_inside = df_seqment.values.tolist()
     edge_list_to_list = []
     for row_base in df_list:
-        for row_to_compare in df_list_inside:
+        for row_to_compare in df_list:
             if row_base[0] == row_to_compare[0]:
                 None
             else:
-                # first filter, song is whennever between ranges? 
-                if row_base[7] >= row_to_compare[6] and row_base[8] <= row_to_compare[6]:
+                # first filter, song is whennever between ranges?
+                # 7 alap, 8 max, 9 min, 10 musical key init
+                if row_base[7] >= row_to_compare[9] and row_base[7] <= row_to_compare[8]:
                     # only a temporary function:
-                    if row_base[9] == row_to_compare[9]:
+                    if row_base[10] == row_to_compare[10]:
                         edge_list_to_list.append((row_base[0], row_to_compare[0]))
                     else:
                         None
+                        # I think it is a duplicated funciton 
                     if row_to_compare[12] in f.get_classic_neighbours(row_base[12]):    
                         #print(row_base.ID, row_to_compare.ID)
                         edge_list_to_list.append((row_base[0], row_to_compare[0]))
